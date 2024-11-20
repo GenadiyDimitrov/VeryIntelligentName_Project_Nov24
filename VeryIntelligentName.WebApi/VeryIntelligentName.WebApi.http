@@ -1,0 +1,6 @@
+@VeryIntelligentName.WebApi_HostAddress = http://localhost:5160
+
+GET {{VeryIntelligentName.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

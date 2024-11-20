@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-VeryIntelligentName.Web-f704c02e-6a2d-4cee-8940-12f339776581</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.8.0" />
+		<PackageReference Include="Microsoft.DotNet.Scaffolding.Shared" Version="8.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VeryIntelligentName.Common\VeryIntelligentName.Common.csproj" />
+		<ProjectReference Include="..\VeryIntelligentName.Data\VeryIntelligentName.Data.csproj" />
+		<ProjectReference Include="..\VeryIntelligentName.Services.Data\VeryIntelligentName.Services.Data.csproj" />
+		<ProjectReference Include="..\VeryIntelligentName.Services.Mapping\VeryIntelligentName.Services.Mapping.csproj" />
+		<ProjectReference Include="..\VeryIntelligentName.Web.Infrastructure\VeryIntelligentName.Web.Infrastructure.csproj" />
+		<ProjectReference Include="..\VeryIntelligentName.Web.ViewModels\VeryIntelligentName.Web.ViewModels.csproj" />
+	</ItemGroup>
+
+</Project>
