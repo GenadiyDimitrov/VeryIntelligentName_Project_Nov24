@@ -19,4 +19,8 @@
 		<ProjectReference Include="..\VeryIntelligentName.Common\VeryIntelligentName.Common.csproj" />
 		<ProjectReference Include="..\VeryIntelligentName.Data.Models\VeryIntelligentName.Data.Models.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Migrations\" />
+	</ItemGroup>
 </Project>
