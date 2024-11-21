@@ -35,8 +35,8 @@ namespace VeryIntelligentName.Web
                 cfg.LoginPath = "/Identity/Account/Login";
             });
 
-            //builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
-            //builder.Services.RegisterUserDefinedServices(typeof(IMovieService).Assembly);
+            //////////////builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+            //////////////builder.Services.RegisterUserDefinedServices(typeof(IMovieService).Assembly);
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

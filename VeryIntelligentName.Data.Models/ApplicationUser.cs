@@ -7,7 +7,6 @@ namespace VeryIntelligentName.Data.Models
     {
         public ApplicationUser()
         {
-            // ReSharper disable once VirtualMemberCallInConstructor
             this.Id = Guid.NewGuid();
         }
     }
