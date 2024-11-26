@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using VeryIntelligentName.Data;
+using VeryIntelligentName.Web.Infrastructure;
 
 namespace VeryIntelligentName.Web.Infrastructure.Extentions
 {
@@ -14,8 +15,13 @@ namespace VeryIntelligentName.Web.Infrastructure.Extentions
             ApplicationDbContext dbContext = serviceScope
                 .ServiceProvider
                 .GetRequiredService<ApplicationDbContext>()!;
-            dbContext.Database.Migrate();
-
+            try
+            {
+                dbContext.Database.Migrate();
+            }
+            catch (Exception ex)
+            {
+            }
             return app;
         }
     }

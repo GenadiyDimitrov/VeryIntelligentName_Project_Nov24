@@ -5,6 +5,7 @@ using VeryIntelligentName.Services.Mapping;
 using VeryIntelligentName.Web.ViewModels;
 using VeryIntelligentName.Web.Infrastructure.Extentions;
 using VeryIntelligentName.Data.Models;
+using Microsoft.Data.SqlClient;
 
 namespace VeryIntelligentName.Web
 {
@@ -64,7 +65,8 @@ namespace VeryIntelligentName.Web
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
             app.MapRazorPages(); // Add routing to Identity Razor Pages
 
             app.ApplyMigrations();

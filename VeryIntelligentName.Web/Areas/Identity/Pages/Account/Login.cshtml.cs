@@ -66,7 +66,7 @@ namespace VeryIntelligentName.Web.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [EmailAddress]
+            [DataType(DataType.Text)]
             public string Username { get; set; }
 
             /// <summary>
@@ -91,7 +91,6 @@ namespace VeryIntelligentName.Web.Areas.Identity.Pages.Account
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
-
             returnUrl ??= Url.Content("~/");
 
             // Clear the existing external cookie to ensure a clean login process
@@ -100,6 +99,7 @@ namespace VeryIntelligentName.Web.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             ReturnUrl = returnUrl;
+
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

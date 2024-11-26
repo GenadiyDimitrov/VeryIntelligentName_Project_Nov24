@@ -1,20 +1,24 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using VeryIntelligentName.Data;
+using VeryIntelligentName.Data.Models;
 using VeryIntelligentName.Web.ViewModels;
 
 namespace VeryIntelligentName.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(UserManager<ApplicationUser> userManager, ApplicationDbContext applicationDbContext) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
+            if (!this.IsDatabaseAvailable(applicationDbContext)) return Error();
+            string userId = userManager.GetUserId(User)!;
+            if (String.IsNullOrWhiteSpace(userId))
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
             return View();
         }
 
