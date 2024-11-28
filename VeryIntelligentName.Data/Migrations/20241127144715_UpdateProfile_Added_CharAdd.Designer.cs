@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VeryIntelligentName.Data;
 
@@ -11,9 +12,11 @@ using VeryIntelligentName.Data;
 namespace VeryIntelligentName.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127144715_UpdateProfile_Added_CharAdd")]
+    partial class UpdateProfile_Added_CharAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,12 +241,6 @@ namespace VeryIntelligentName.Data.Migrations
                         .HasColumnType("int")
                         .HasComment("Contitution stat of entity");
 
-                    b.Property<string>("ClassName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Name of class");
-
                     b.Property<double>("ConModifier")
                         .HasColumnType("float")
                         .HasComment("Dependent on class");
@@ -300,12 +297,6 @@ namespace VeryIntelligentName.Data.Migrations
                         .HasColumnType("int")
                         .HasComment("Contitution stat of entity");
 
-                    b.Property<string>("ClassName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Name of class");
-
                     b.Property<double>("ConModifier")
                         .HasColumnType("float")
                         .HasComment("Dependent on class");
@@ -339,11 +330,10 @@ namespace VeryIntelligentName.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f6edeed2-19d2-4cc5-9d86-47e5da556ace"),
+                            Id = new Guid("5e8a5c71-dabf-4ed9-b57c-b517a47e2d7a"),
                             ATK = 12,
                             AtkModifier = 1.5,
                             CON = 10,
-                            ClassName = "Wizard",
                             ConModifier = 0.5,
                             DEX = 8,
                             DexModifier = 0.59999999999999998,
@@ -353,11 +343,10 @@ namespace VeryIntelligentName.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fc17162a-7d58-49ae-9268-087428084c38"),
+                            Id = new Guid("3ccaf9ac-e348-4c15-b996-9d8fe54a678e"),
                             ATK = 10,
                             AtkModifier = 0.80000000000000004,
                             CON = 10,
-                            ClassName = "Thief",
                             ConModifier = 0.80000000000000004,
                             DEX = 10,
                             DexModifier = 1.0,
@@ -367,11 +356,10 @@ namespace VeryIntelligentName.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2d12adf8-48fe-45a6-8645-224ce5517501"),
+                            Id = new Guid("637d5037-c3d0-4ed9-b694-c831d94afc9c"),
                             ATK = 11,
                             AtkModifier = 1.0,
                             CON = 11,
-                            ClassName = "Warrior",
                             ConModifier = 1.0,
                             DEX = 8,
                             DexModifier = 0.59999999999999998,

@@ -1,0 +1,62 @@
+﻿@using VeryIntelligentName.Data.Models
+<style>
+    td {
+        border: 1px solid #000;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(212, 212, 212, 0.4);
+    }
+
+    th {
+        border: 1px solid #000;
+    }
+
+        th:nth-child(even), td:nth-child(even) {
+            background-color: rgba(212, 212, 212, 0.4);
+        }
+
+    th, td {
+        padding: 5px;
+    }
+</style>
+@{
+    ViewData["Title"] = "About";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+    if (Model is IEnumerable<CharacterClass> classes)
+    {
+        <table>
+            <caption>Current available classes</caption>
+            <tr>
+                <th><b>Class</b></th>
+                <th><b>ATK</b></th>
+                <th><b>Modifier</b></th>
+                <th><b>CON</b></th>
+                <th><b>Modifier</b></th>
+                <th><b>DEX</b></th>
+                <th><b>Modifier</b></th>
+                <th><b>Initiative</b></th>
+            </tr>
+            @foreach (var characterClass in classes)
+            {
+                <tr>
+                    <th><b>@characterClass.Name</b></th>
+                    <td>@characterClass.ATK</td>
+                    <td>@characterClass.AtkModifier</td>
+                    <td>@characterClass.CON</td>
+                    <td>@characterClass.ConModifier</td>
+                    <td>@characterClass.DEX</td>
+                    <td>@characterClass.DexModifier</td>
+                    <td>@characterClass.InitiativeModifier</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3>No Classes found</h3>
+    }
+}

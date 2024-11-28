@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VeryIntelligentName.Data;
 
@@ -11,9 +12,11 @@ using VeryIntelligentName.Data;
 namespace VeryIntelligentName.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127085619_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,68 +222,6 @@ namespace VeryIntelligentName.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("VeryIntelligentName.Data.Models.Character", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("Entity identifier");
-
-                    b.Property<int>("ATK")
-                        .HasColumnType("int")
-                        .HasComment("Atack stat of entity");
-
-                    b.Property<double>("AtkModifier")
-                        .HasColumnType("float")
-                        .HasComment("Dependent on class");
-
-                    b.Property<int>("CON")
-                        .HasColumnType("int")
-                        .HasComment("Contitution stat of entity");
-
-                    b.Property<string>("ClassName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Name of class");
-
-                    b.Property<double>("ConModifier")
-                        .HasColumnType("float")
-                        .HasComment("Dependent on class");
-
-                    b.Property<int>("DEX")
-                        .HasColumnType("int")
-                        .HasComment("Dextirity stat of entity");
-
-                    b.Property<double>("DexModifier")
-                        .HasColumnType("float")
-                        .HasComment("Dependent on class");
-
-                    b.Property<double>("InitiativeModifier")
-                        .HasColumnType("float")
-                        .HasComment("Dependent on class. Range classes have higher modifier");
-
-                    b.Property<int>("Level")
-                        .HasColumnType("int")
-                        .HasComment("Increase stats or loot");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Name of the entity");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("User it belongs to");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PlayerId");
-
-                    b.ToTable("Characters");
-                });
-
             modelBuilder.Entity("VeryIntelligentName.Data.Models.CharacterClass", b =>
                 {
                     b.Property<Guid>("Id")
@@ -299,12 +240,6 @@ namespace VeryIntelligentName.Data.Migrations
                     b.Property<int>("CON")
                         .HasColumnType("int")
                         .HasComment("Contitution stat of entity");
-
-                    b.Property<string>("ClassName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Name of class");
 
                     b.Property<double>("ConModifier")
                         .HasColumnType("float")
@@ -339,11 +274,10 @@ namespace VeryIntelligentName.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f6edeed2-19d2-4cc5-9d86-47e5da556ace"),
+                            Id = new Guid("0d32bc3f-0826-4618-952f-2b37170cd4b5"),
                             ATK = 12,
                             AtkModifier = 1.5,
                             CON = 10,
-                            ClassName = "Wizard",
                             ConModifier = 0.5,
                             DEX = 8,
                             DexModifier = 0.59999999999999998,
@@ -353,11 +287,10 @@ namespace VeryIntelligentName.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fc17162a-7d58-49ae-9268-087428084c38"),
+                            Id = new Guid("a2001a3f-2d5c-48cf-a420-321fa129adc5"),
                             ATK = 10,
                             AtkModifier = 0.80000000000000004,
                             CON = 10,
-                            ClassName = "Thief",
                             ConModifier = 0.80000000000000004,
                             DEX = 10,
                             DexModifier = 1.0,
@@ -367,11 +300,10 @@ namespace VeryIntelligentName.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2d12adf8-48fe-45a6-8645-224ce5517501"),
+                            Id = new Guid("63d0109f-7fa8-4cc6-b794-6dca5db60207"),
                             ATK = 11,
                             AtkModifier = 1.0,
                             CON = 11,
-                            ClassName = "Warrior",
                             ConModifier = 1.0,
                             DEX = 8,
                             DexModifier = 0.59999999999999998,
@@ -379,23 +311,6 @@ namespace VeryIntelligentName.Data.Migrations
                             Level = 1,
                             Name = "Warrior"
                         });
-                });
-
-            modelBuilder.Entity("VeryIntelligentName.Data.Models.PlayersCharacters", b =>
-                {
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("User it belongs to");
-
-                    b.Property<Guid>("CharacterId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("Character it belongs to");
-
-                    b.HasKey("PlayerId", "CharacterId");
-
-                    b.HasIndex("CharacterId");
-
-                    b.ToTable("PlayersCharacters");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -447,36 +362,6 @@ namespace VeryIntelligentName.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("VeryIntelligentName.Data.Models.Character", b =>
-                {
-                    b.HasOne("VeryIntelligentName.Data.Models.ApplicationUser", "Player")
-                        .WithMany()
-                        .HasForeignKey("PlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Player");
-                });
-
-            modelBuilder.Entity("VeryIntelligentName.Data.Models.PlayersCharacters", b =>
-                {
-                    b.HasOne("VeryIntelligentName.Data.Models.Character", "Character")
-                        .WithMany()
-                        .HasForeignKey("CharacterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VeryIntelligentName.Data.Models.ApplicationUser", "Player")
-                        .WithMany()
-                        .HasForeignKey("PlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Character");
-
-                    b.Navigation("Player");
                 });
 #pragma warning restore 612, 618
         }

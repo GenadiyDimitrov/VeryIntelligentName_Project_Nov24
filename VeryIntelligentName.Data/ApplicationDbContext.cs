@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
+using System.Reflection;
 using VeryIntelligentName.Data.Models;
 
 namespace VeryIntelligentName.Data
@@ -20,9 +22,11 @@ namespace VeryIntelligentName.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        public virtual DbSet<CharacterClass> CharacterClasses { get; set; }
+        public virtual DbSet<PlayersCharacters> PlayersCharacters { get; set; }
+        public virtual DbSet<Character> Characters { get; set; }
     }
 }

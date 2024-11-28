@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Web", "VeryIntelligentName.Web\VeryIntelligentName.Web.csproj", "{7D13C0D9-FB6D-4F2A-829F-B34B6F40E765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Web", "VeryIntelligentName.Web\VeryIntelligentName.Web.csproj", "{7D13C0D9-FB6D-4F2A-829F-B34B6F40E765}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{11585E09-9984-42F9-AC22-713EB98471BB}"
 EndProject
@@ -11,21 +11,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7A58CF39-C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FE7E538A-1858-4B5E-A9DF-AA7CDEBFF329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Common", "VeryIntelligentName.Common\VeryIntelligentName.Common.csproj", "{838448B2-56A3-40FE-8EBC-B69C983C72A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Common", "VeryIntelligentName.Common\VeryIntelligentName.Common.csproj", "{838448B2-56A3-40FE-8EBC-B69C983C72A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.WebApi", "VeryIntelligentName.WebApi\VeryIntelligentName.WebApi.csproj", "{EA365D38-CBB9-49FD-B59E-928A65EAD09A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.WebApi", "VeryIntelligentName.WebApi\VeryIntelligentName.WebApi.csproj", "{EA365D38-CBB9-49FD-B59E-928A65EAD09A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Data", "VeryIntelligentName.Data\VeryIntelligentName.Data.csproj", "{2562E89F-FCBC-4B8D-A938-AFBEB4F86C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Data", "VeryIntelligentName.Data\VeryIntelligentName.Data.csproj", "{2562E89F-FCBC-4B8D-A938-AFBEB4F86C7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Data.Models", "VeryIntelligentName.Data.Models\VeryIntelligentName.Data.Models.csproj", "{6E05C88E-7BDF-4DA2-BE51-D7334FB57F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Data.Models", "VeryIntelligentName.Data.Models\VeryIntelligentName.Data.Models.csproj", "{6E05C88E-7BDF-4DA2-BE51-D7334FB57F7B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{838448B2-56A3-40FE-8EBC-B69C983C72A7} = {838448B2-56A3-40FE-8EBC-B69C983C72A7}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Services.Data", "VeryIntelligentName.Services.Data\VeryIntelligentName.Services.Data.csproj", "{235FAA8A-05A9-4F1E-AAB5-BB65CDA83783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Services.Data", "VeryIntelligentName.Services.Data\VeryIntelligentName.Services.Data.csproj", "{235FAA8A-05A9-4F1E-AAB5-BB65CDA83783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Services.Mapping", "VeryIntelligentName.Services.Mapping\VeryIntelligentName.Services.Mapping.csproj", "{B362FF2E-FDB8-4A4D-B245-4B3A2E9BA7BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Services.Mapping", "VeryIntelligentName.Services.Mapping\VeryIntelligentName.Services.Mapping.csproj", "{B362FF2E-FDB8-4A4D-B245-4B3A2E9BA7BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Web.Infrastructure", "VeryIntelligentName.Web.Infrastructure\VeryIntelligentName.Web.Infrastructure.csproj", "{BB14D5CB-CB35-42BA-8004-003B9C400B8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Web.Infrastructure", "VeryIntelligentName.Web.Infrastructure\VeryIntelligentName.Web.Infrastructure.csproj", "{BB14D5CB-CB35-42BA-8004-003B9C400B8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryIntelligentName.Web.ViewModels", "VeryIntelligentName.Web.ViewModels\VeryIntelligentName.Web.ViewModels.csproj", "{F313059B-9601-4240-B59A-D2E854857026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryIntelligentName.Web.ViewModels", "VeryIntelligentName.Web.ViewModels\VeryIntelligentName.Web.ViewModels.csproj", "{F313059B-9601-4240-B59A-D2E854857026}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage;
+using VeryIntelligentName.Services.Data;
 
 namespace VeryIntelligentName.Web
 {
@@ -29,6 +31,12 @@ namespace VeryIntelligentName.Web
 
             cfg.User.RequireUniqueEmail =
                 configuration.GetValue<bool>("Identity:User:RequireUniqueEmail");
+        }
+
+        public static IServiceCollection AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IDatabaseManager,DatabaseManager>();
+            return services;
         }
     }
 }

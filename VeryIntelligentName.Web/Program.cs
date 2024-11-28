@@ -31,7 +31,9 @@ namespace VeryIntelligentName.Web
                 .AddSignInManager<SignInManager<ApplicationUser>>()
                 .AddUserManager<UserManager<ApplicationUser>>();
 
-            builder.Services.ConfigureApplicationCookie(cfg =>
+            builder.Services
+                .AddServices()
+                .ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/Identity/Account/Login";
             });

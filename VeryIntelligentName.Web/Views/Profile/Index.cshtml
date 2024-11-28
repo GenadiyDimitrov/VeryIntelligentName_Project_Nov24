@@ -1,0 +1,126 @@
+﻿@using System.Web.Helpers
+@using VeryIntelligentName.Data.Models
+@using VeryIntelligentName.Web.ViewModels
+@using Microsoft.AspNetCore.Antiforgery
+@model PlayerProfileViewModel
+<style>
+    /* Hide radio buttons but keep them accessible for selection */
+    /* input[type="radio"] {
+                            display: none;
+                        } */
+
+    .hidden {
+        display: none;
+    }
+
+    /* Highlight selected row for better visibility */
+    .selected {
+        background-color: lightblue !important;
+    }
+
+    .buttonelement {
+        border: 1px solid black;
+        background-color: rgba(212, 212, 212, 0.4);
+        width: 60px;
+        margin:7px 0px;
+        padding:5px;
+        text-decoration-line: none;
+    }
+    td {
+        border: 1px solid #000;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(212, 212, 212, 0.4);
+    }
+
+    th {
+        border: 1px solid #000;
+    }
+
+        th:nth-child(even) {
+            background-color: rgba(212, 212, 212, 0.4);
+        }
+
+    th, td {
+        padding: 5px;
+    }
+
+    .unselectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+</style>
+<h1>
+    Player statistics
+</h1>
+<div>
+    <ul>
+        <li>Palyer statistics</li>
+    </ul>
+    @if (Model?.Characters is IEnumerable<Character> characters)
+    {
+        <form method="post">
+            <table>
+                <caption>Current Characters</caption>
+                <tr>
+                    <th class="unselectable"><b>Name</b></th>
+                    <th class="unselectable"><b>Class</b></th>
+                    <th class="unselectable"><b>ATK</b></th>
+                    <th class="unselectable"><b>CON</b></th>
+                    <th class="unselectable"><b>DEX</b></th>
+                    <th class="unselectable"><b>Attack</b></th>
+                    <th class="unselectable"><b>Deffence</b></th>
+                    <th class="unselectable"><b>Health</b></th>
+                    <th class="unselectable"><b>Stamina</b></th>
+                    <th class="unselectable"><b>Speed</b></th>
+                    <th class="unselectable"><b>Initiative</b></th>
+                </tr>
+                @foreach (var character in characters)
+                {
+                    <tr onclick="selectRow(this)">
+                        <th class="unselectable"><b>@character.Name</b></th>
+                        <td class="unselectable">@character.ClassName</td>
+                        <td class="unselectable">@character.ATK</td>
+                        <td class="unselectable">@character.CON</td>
+                        <td class="unselectable">@character.DEX</td>
+                        <td class="unselectable">@(character.ATK * character.AtkModifier + 10)</td>
+                        <td class="unselectable">@(character.CON * character.ConModifier + 5)</td>
+                        <td class="unselectable">@(character.CON * character.ConModifier * 10 + 100)</td>
+                        <td class="unselectable">@(character.CON * character.ConModifier * 5 + 10)</td>
+                        <td class="unselectable">@(character.DEX * character.DexModifier + 10)</td>
+                        <td class="unselectable">@(character.DEX * character.DexModifier + character.DEX / 10)</td>
+                        <td class="hidden">
+                            <input type="radio" name="selectedId" value="@character.Id" />
+                        </td>
+                    </tr>
+                }
+            </table>
+            <!-- Action Buttons -->
+
+            <button class="buttonelement" type="submit" asp-action="Edit" asp-controller="Profile">Edit</button>
+            <button class="buttonelement" type="submit" asp-action="Delete" asp-controller="Profile">Delete</button>
+        </form>
+    }
+
+    <a  class="buttonelement" asp-area="" asp-controller="Profile" asp-action="CreateChar">Add New Char</a>
+</div>
+
+<script>
+    function selectRow(row) {
+        // Deselect all rows
+        document.querySelectorAll('tr').forEach(tr => tr.classList.remove('selected'));
+
+        // Highlight the selected row
+        row.classList.add('selected');
+
+        // Select the corresponding radio button
+        const radio = row.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.checked = true;
+        }
+    }
+</script>
